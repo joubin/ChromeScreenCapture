@@ -1,0 +1,19 @@
+{
+  "name": "PressToCapture",
+  "version": "0.2.1",
+  "description": "Capture a tab for ashkan (with backend)",
+  "options_page": "option.html",
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2,
+"icons": { "16": "16.png",
+           "48": "48.png" },
+  "browser_action": {
+  "default_icon": "128.png",
+  "default_title": "Capture tab"      
+  },
+  "permissions" : ["tabs", "<all_urls>"]
+}
+
