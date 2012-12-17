@@ -5,16 +5,29 @@ function saveChanges() {
   var theAge = age.value;
   var theGender = gender.value;
   var theOther = other.value;
-	alert("theCity is: "+ theCity);
-	alert("theState is: "+ theState);
-	alert("theEmail is: "+ theEmail);
-	alert("theAge is: "+ theAge);
-	alert("theGender is: "+ theGender);
-	alert("theOther is: "+ theOther);
+	
 
+   var xhr = new XMLHttpRequest(), formData = new FormData();  
+    formData.append("city", theCity);
+    formData.append("state", theState);
+    formData.append("email", theEmail);
+    formData.append("age", theAge);
+    formData.append("gender", theGender);
+    formData.append("other", theOther);
 
+	xhr.onreadystatechange = function (event) {
+	    if (xhr.readyState === 4 && xhr.status === 200) {
+	       var theValue = xhr.responseText; // value should equal "1234"
+			localStorage["mainLogin"] = theValue;
+	    }
+	};
+    xhr.open("POST", "UploadSite", true);
+    xhr.send(formData);
+	alert("Okay, now the extension is ready to be used.");
 
-	alert("Okay, got your user and pass. Just close the page now!");
+	chrome.tabs.getCurrent(function(tab) {
+	    chrome.tabs.remove(tab.id, function() { });
+	});
 	
 }
 

@@ -1,21 +1,21 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
-if( localStorage["username"] == null){
+if( localStorage["mainLogin"] == null){
 	alert("Please go to the option page to login");
 }
  chrome.tabs.captureVisibleTab(null, function(img) {
+	chrome.browserAction.setBadgeText ( { text: "working..." } );
+	setTimeout(function () {
+	    chrome.browserAction.setBadgeText( { text: "" } );
+	}, 1000);
     var xhr = new XMLHttpRequest(), formData = new FormData();  
-    formData.append("img", img);
-    formData.append("user", localStorage["username"]);
-    formData.append("pass", localStorage["password"]);
+    formData.append("user", localStorage["mainLogin"]);
+ 	formData.append("img", img);
+	alert(localStorage["mainLogin"]);
+	alert(img);
 
-	xhr.onreadystatechange = function (event) {
-	    if (xhr.readyState === 4 && xhr.status === 200) {
-	       var value = xhr.responseText; // value should equal "1234"
-	        alert( "value = " + value );
-	    }
-	};
-    xhr.open("POST", "path/to/your/site", true);
+    xhr.open("POST", "UploadSite", true);
     xhr.send(formData);
+	
   });
 });
 
