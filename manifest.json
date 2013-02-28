@@ -1,7 +1,7 @@
 {
   "name": "PressToCapture",
-  "version": "0.2.2",
-  "description": "Capture a tab for ashkan (with backend)",
+  "version": "0.3.0",
+  "description": "Capture a tab for Ashk4n",
   "options_page": "option.html",
   "background": {
     "persistent": false,
