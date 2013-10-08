@@ -37,12 +37,12 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 		//	alert("PictureID is "+ theResponse + " userID=" + localStorage["id"]);
 		//alert(theResponse);
 		if(theResponse != "Stop Cheating! This has been reported.")
-			chrome.windows.create({'url': "http://example.com//prototype2.php?pictureID="+ theResponse + "&userID=" + localStorage["id"]+"&username="+  localStorage["mainLogin"]}, function(tab) {
+			chrome.windows.create({'url': "http://example.com/uploads4/prototype2.php?pictureID="+ theResponse + "&userID=" + localStorage["id"]+"&username="+  localStorage["mainLogin"]}, function(tab) {
 			  // open window
 			});
 	}};	
 
-    xhr.open("POST", "http://example.com//upload_file.php", true);
+    xhr.open("POST", "http://example.com/uploads4/upload_file.php", true);
     xhr.send(formData);
 	
   });

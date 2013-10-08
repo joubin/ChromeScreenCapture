@@ -34,7 +34,7 @@ function saveChanges() {
 				};	
 	    }
 	};
-    xhr.open("POST", "http://example.com//Signups/check.php", true);
+    xhr.open("POST", "http://example.com/uploads4/Signups/check.php", true);
     xhr.send(formData);
 
 }
